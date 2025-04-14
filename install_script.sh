@@ -29,6 +29,7 @@ progress_bar() {
 # Lista de pacotes a instalar
 packages=(
   "PeptideBuilder"
+  "py3Dmol"
   "libstdc++6"
   "Miniconda3"
   "Openff-toolkit"
@@ -37,7 +38,6 @@ packages=(
   "Plotly"
   "Kaleido"
   "Pdb2Pqr"
-  "py3Dmol"
 )
 
 # Função para determinar o comando de instalação de acordo com o pacote
@@ -46,6 +46,9 @@ get_install_command() {
     case $package_name in
         "PeptideBuilder")
             echo "pip install biopython -q >/dev/null 2>&1 && pip install git+https://github.com/mtien/PeptideBuilder.git -q >/dev/null 2>&1"
+            ;;
+        "py3Dmol")
+            echo "pip install py3Dmol -q >/dev/null 2>&1"
             ;;
         "libstdc++6")
             echo "sudo apt-get install -y libstdc++6 -q >/dev/null 2>&1"
@@ -70,9 +73,6 @@ get_install_command() {
             ;;
         "Pdb2Pqr")
             echo "conda install -c conda-forge pdb2pqr -y -q >/dev/null 2>&1"
-            ;;
-        "py3Dmol")
-            echo "pip install py3Dmol -q >/dev/null 2>&1"
             ;;
         *)
             echo "echo 'Comando desconhecido para $package_name'"
