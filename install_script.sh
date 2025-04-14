@@ -38,7 +38,6 @@ packages=(
   "Kaleido"
   "Pdb2Pqr"
   "py3Dmol"
-  "DM Enovelamento"
 )
 
 # Função para determinar o comando de instalação de acordo com o pacote
@@ -74,9 +73,6 @@ get_install_command() {
             ;;
         "py3Dmol")
             echo "pip install py3Dmol -q >/dev/null 2>&1"
-            ;;
-        "DM Enovelamento")
-            echo "apt-get install git -q >/dev/null 2>&1 && git clone https://github.com/klocke3/Enovelamento_proteina.git -q >/dev/null 2>&1"
             ;;
         *)
             echo "echo 'Comando desconhecido para $package_name'"
