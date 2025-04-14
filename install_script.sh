@@ -1,6 +1,3 @@
-# Vamos criar o arquivo de script no Google Colab
-
-script_code = """
 #!/bin/bash
 
 # Função para exibir a barra de progresso
@@ -9,13 +6,24 @@ progress_bar() {
     local total_steps=$2
     local width=50
 
+    # Verifica se total_steps é maior que zero para evitar divisão por zero
+    if [ $total_steps -eq 0 ]; then
+        echo "Erro: o número total de etapas não pode ser zero."
+        exit 1
+    fi
+
+    # Calcula a porcentagem
     local percent=$(( (100 * current_step) / total_steps ))
+    # Calcula o progresso feito
     local done=$((current_step * width / total_steps))
+    # Calcula o espaço restante
     local left=$((width - done))
+    # Gera a parte preenchida da barra
     local fill=$(printf "%${done}s" | tr ' ' '#')
+    # Gera a parte vazia da barra
     local empty=$(printf "%${left}s" | tr ' ' '-')
 
-    echo -ne "\\r[${fill}${empty}] ${percent}%"
+    echo -ne "\r[${fill}${empty}] ${percent}%"
 }
 
 # Lista de pacotes a instalar
@@ -85,7 +93,7 @@ echo "Iniciando a instalação de pacotes..."
 for pkg in "${packages[@]}"; do
     ((current_step++))  # Incrementa a etapa
     progress_bar $current_step $total_steps
-    echo -e "\\nInstalando $pkg..."
+    echo -e "\nInstalando $pkg..."
     
     # Obter o comando de instalação correto
     install_command=$(get_install_command $pkg)
@@ -97,12 +105,4 @@ for pkg in "${packages[@]}"; do
     echo "$pkg instalado com sucesso! ✅"
 done
 
-echo -e "\\nTodos os pacotes foram instalados com sucesso! 🎉"
-"""
-
-# Salvar o código em um arquivo chamado 'install_script.sh'
-with open("/content/install_script.sh", "w") as f:
-    f.write(script_code)
-
-# Agora você pode rodar o script no Google Colab
-!bash /content/install_script.sh
+echo -e "\nTodos os pacotes foram instalados com sucesso! 🎉"
