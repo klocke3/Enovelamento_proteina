@@ -38,6 +38,7 @@ packages=(
   "Plotly"
   "Kaleido"
   "Pdb2Pqr"
+  "PDBfixer"
 )
 
 # Função para determinar o comando de instalação de acordo com o pacote
@@ -73,6 +74,9 @@ get_install_command() {
             ;;
         "Pdb2Pqr")
             echo "conda install -c conda-forge pdb2pqr -y -q >/dev/null 2>&1"
+            ;;
+        "PDBfixer")
+            echo " conda install -c conda-forge pdbfixer -y -q >/dev/null 2>&1"
             ;;
         *)
             echo "echo 'Comando desconhecido para $package_name'"
