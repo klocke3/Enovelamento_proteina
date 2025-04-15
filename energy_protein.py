@@ -31,4 +31,4 @@ simulation.context.setPositions(pdb.positions)
 # Calcula energia sem minimizar
 state = simulation.context.getState(getEnergy=True)
 energy = state.getPotentialEnergy()
-print("⚡ Energia total após correção com PDBFixer:", energy)
+print("⚡ Energia total:", energy)
