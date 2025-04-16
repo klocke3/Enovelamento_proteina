@@ -52,8 +52,8 @@ get_install_command() {
         "py3Dmol")
             echo "pip install py3Dmol -q >/dev/null 2>&1"
             ;;
-        "py3Dmol")
-            echo "pip install MDAnalysis -q >/dev/null 2>&1"
+        "MDAnalysis")
+            echo "pip install --upgrade MDAnalysis -q >/dev/null 2>&1"
             ;;
         "libstdc++6")
             echo "sudo apt-get install -y libstdc++6 -q >/dev/null 2>&1"
