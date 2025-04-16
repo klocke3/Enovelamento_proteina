@@ -33,7 +33,7 @@ packages=(
   "libstdc++6"
   "Miniconda3"
   "Openff-toolkit"
-  "Openmm Forcefields"
+  "Openmm-Forcefields"
   "Mdtraj"
   "Plotly"
   "Kaleido"
@@ -60,7 +60,7 @@ get_install_command() {
         "Openff-toolkit")
             echo "conda install -c conda-forge openff-toolkit -y -q >/dev/null 2>&1"
             ;;
-        "Openmm Forcefields")
+        "Openmm-Forcefields")
             echo "conda install -c conda-forge openmmforcefields -y -q >/dev/null 2>&1"
             ;;
         "Mdtraj")
@@ -76,7 +76,7 @@ get_install_command() {
             echo "conda install -c conda-forge pdb2pqr -y -q >/dev/null 2>&1"
             ;;
         "PDBfixer")
-            echo " conda install -c conda-forge pdbfixer -y -q >/dev/null 2>&1"
+            echo "conda install -c conda-forge pdbfixer -y -q >/dev/null 2>&1"
             ;;
         *)
             echo "echo 'Comando desconhecido para $package_name'"
