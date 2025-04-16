@@ -23,7 +23,7 @@ parser.add_argument("-o", "--output", default='output', help="Base name for outp
 parser.add_argument("-s", "--steps", type=int, default=5000, help="Number of steps")
 parser.add_argument("-z", "--step-size", type=float, default=0.004, help="Step size (ps")
 parser.add_argument("-f", "--friction-coeff", type=float, default=1, help="Friction coefficient (ps)")
-parser.add_argument("-i", "--interval", type=int, default=100000, help="Reporting interval")
+parser.add_argument("-i", "--interval", type=int, default=1000, help="Reporting interval")
 parser.add_argument("-t", "--temperature", type=int, default=300, help="Temperature (K)")
 parser.add_argument("--solvate", action='store_true', help="Add solvent box")
 parser.add_argument("--padding", type=float, default=10, help="Padding for solvent box (A)")
